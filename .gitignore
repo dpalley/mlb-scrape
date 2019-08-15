@@ -1,0 +1,9 @@
+env/
+.ipynb_checkpoints/
+*.pyc
+*.ipynb
+mlb.com.txt
+notebook.py
+readme.txt
+team_info.txt
+heroku-notes.txt

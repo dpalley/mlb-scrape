@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+    {% for team in teams %}
+        <div>
+            <p><a class="team-name" href="#">{{ team['name'] }}</a></p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
