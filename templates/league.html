@@ -7,11 +7,18 @@
             <p class="division">{{ division.name }}</p>
             {% for team in division.teams %}
                 {% set name = team.name %}
-                {% set logo_url = 'https:' + team.logo %}
+                {% set id = team.id %}
+                {% set logo_url = 'https:' ~ team.logo %}
+                {% set stats_base_url = "http://mlb.mlb.com/stats/sortable.jsp#game_type='R'&season=2019" %}
+                {% set hitting_url = stats_base_url ~ '&statType=hitting&team_id=' ~ id ~ '&playerType=ALL' %}
+
+{#
+http://mlb.mlb.com/stats/sortable.jsp#game_type='R'&season=2019
+&statType=hitting&team_id=117&playerType=ALL
+#}
 
                 <span class="team"><img class="team-logo" src = "{{ logo_url }}"<p>
-                <a class="team-name" href="#">{{ name }}</a></p></span>
-
+                <a class="team-name" href="{{ hitting_url }}">{{ name }}</a></p></span>
             {% endfor %}
         {% endfor %}
     {% endfor %}
