@@ -9,7 +9,40 @@ pp = pprint.PrettyPrinter(indent=4)
 # page = requests.get('https://www.espn.com/mlb/teams')
 # page = requests.get('https://www.baseball-reference.com/')
 
+def get_leagues():
+    pass
+
 def get_teams():
+    page = requests.get('https://www.mlb.com/standings')
+
+    target = soup(page.text, 'lxml')
+
+    pattern = re.compile(r"window.reactHeaderState")
+    my_script = target.find('script', text=pattern)
+    my_script = my_script.text
+
+
+    teams_start = my_script.index('"teamData')
+    teams = my_script[teams_start :]
+
+    # find the matching '}'
+    first_curly = teams.index('{')
+    index = first_curly + 1
+    count = 1
+    while count > 0:
+        if teams[index] == '{':
+            count += 1
+        if teams[index] == '}':
+            count -=1
+        index += 1
+    # print(f'first curly is {first_curly}, last_curly is {index}')
+    teams = teams[first_curly:index]
+
+    teams = json.loads(teams)
+
+    return teams
+
+def get_teams2():
     page = requests.get('https://www.mlb.com/')
 
 

@@ -1,0 +1,13 @@
+.team-logo {
+  width:  25px;
+  height: 25px;
+  padding: 5px;
+}
+
+span {
+  min-height: 50px;
+  /* display: inline-flex; */
+  display: flex;
+  align-items: center;
+  /* border: 1px solid aqua; */
+}

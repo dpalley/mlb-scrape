@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for league in teams.leagues %}
+        <p class="league">{{ league.name }}</p>
+        {% for division in league.divisions %}
+            <p class="division">{{ division.name }}</p>
+            {% for team in division.teams %}
+                {% set name = team.name %}
+                {% set logo_url = 'https:' + team.logo %}
+
+                <span class="team"><img class="team-logo" src = "{{ logo_url }}"<p>
+                <a class="team-name" href="#">{{ name }}</a></p></span>
+
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}
