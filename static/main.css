@@ -1,3 +1,77 @@
+body {
+    margin: 0px;
+    padding: 10px;
+}
+
+.league {
+    /* background-color: yellow; */
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+/* contained within league */
+/* container for al-xxx divisions */
+div#al {
+    background-color: red;
+    flex-direction: column;
+    justify-content: space-evenly;
+    order: 1;
+}
+
+/* contained within league */
+/* container for nl-xxx divisions */
+div#nl {
+    background: blue;
+    flex-direction: column;
+    justify-content: space-evenly;
+    order: 2;
+}
+
+.division {
+}
+
+/* contained within al (league) */
+/* container for individual teams */
+#al-east {
+    flex-direction: column;
+    order: 1;
+    background-color: #e55039;
+}
+
+#al-central {
+    flex-direction: column;
+    order: 2;
+    background-color: #ee5253;
+}
+
+#al-west {
+    flex-direction: column;
+    order: 3;
+    background-color: #e74c3c;
+}
+
+#nl-east {
+    flex-direction: column;
+    order: 1;
+    background-color: #4a69bd;
+}
+
+#nl-central {
+    flex-direction: column;
+    order: 2;
+    background-color: #2980b9;
+}
+
+#nl-west {
+    flex-direction: column;
+    order: 3;
+    background-color: #54a0ff;
+}
+
+.team {
+}
+
+
 .team-logo {
   width:  25px;
   height: 25px;
@@ -20,4 +94,16 @@ span {
     width: 15px;
     height: 15px;
     padding: 10px;
+}
+
+.al-east {
+    order: 1;
+}
+
+.al-central {
+    order: 2;
+}
+
+.al-west {
+    order: 3;
 }

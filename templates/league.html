@@ -2,10 +2,17 @@
 
 {% block content %}
     {% for league in teams.leagues %}
+        {% set league_id = league.abr.lower() %}
+        <div class="league" id="{{ league_id }}">
         <h2 class="league">{{ league.name }}</h2>
+
         {% for division in league.divisions %}
+            {% set division_id = division.name.lower().replace(' ','-') %}
+            <div class="division" id="{{ division_id }}">
             <h4 class="division">{{ division.name }}</h4>
+
             {% for team in division.teams %}
+                <div class="team">
                 {% set name = team.name %}
                 {% set id = team.id %}
                 {% set logo_url = 'https:' ~ team.logo %}
@@ -29,11 +36,14 @@ Bat icon
                 <span class="team">
                     <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a>
                     <a class="team-name" href="{{ team_url }}">{{ name }}</a>
-                    <a href="{{ hitting_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'hit.png') }}" title="Hitting Stats"></a>
-                    <a href="{{ fielding_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'field.png') }}" title="Fielding Stats"></a>
-                    <a href="{{ pitching_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'pitch.png') }}" title="Pitching Stats"></a>
+                    <a href="{{ hitting_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'hit.jpg') }}" title="Hitting Stats"></a>
+                    <a href="{{ fielding_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'field.jpg') }}" title="Fielding Stats"></a>
+                    <a href="{{ pitching_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'pitch.jpg') }}" title="Pitching Stats"></a>
                 </span>
             {% endfor %}
+            </div>
         {% endfor %}
+        </div>
     {% endfor %}
+    </div>
 {% endblock content %}
