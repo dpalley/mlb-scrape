@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+    <div id="mlb">
     {% for league in teams.leagues %}
         {% set league_id = league.abr.lower() %}
         <div class="league" id="{{ league_id }}">
@@ -12,7 +13,7 @@
             <h4 class="division">{{ division.name }}</h4>
 
             {% for team in division.teams %}
-                <div class="team">
+                <!-- <div class="team"> -->
                 {% set name = team.name %}
                 {% set id = team.id %}
                 {% set logo_url = 'https:' ~ team.logo %}
@@ -21,29 +22,21 @@
                 {% set fielding_url = stats_base_url ~ '&statType=fielding&team_id=' ~ id ~ '&playerType=ALL' %}
                 {% set pitching_url = stats_base_url ~ '&statType=pitching&team_id=' ~ id ~ '&playerType=ALL&position="1"' %}
                 {% set team_url = 'http://mlb.mlb.com' ~ team.url %}
-{#
 
-Bat icon
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"             title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"     title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"     title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-
-<i class="fas fa-fist-raised"></i>
-<i class="fas fa-baseball-ball"></i>
-<i class="fas fa-mitten"></i>
-#}
-
-                <span class="team">
-                    <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a>
-                    <a class="team-name" href="{{ team_url }}">{{ name }}</a>
-                    <a href="{{ hitting_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'hit.jpg') }}" title="Hitting Stats"></a>
-                    <a href="{{ fielding_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'field.jpg') }}" title="Fielding Stats"></a>
-                    <a href="{{ pitching_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'pitch.jpg') }}" title="Pitching Stats"></a>
-                </span>
-            {% endfor %}
-            </div>
-        {% endfor %}
-        </div>
-    {% endfor %}
-    </div>
+                    <span class="team">
+                        <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a>
+                        <a class="team-name" href="{{ team_url }}">{{ name }}</a>
+                        <a href="{{ hitting_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'hit.jpg') }}" title="Hitting Stats"></a>
+                        <a href="{{ fielding_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'field.jpg') }}" title="Fielding Stats"></a>
+                        <a href="{{ pitching_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'pitch.jpg') }}" title="Pitching Stats"></a>
+                    </span>
+                <!-- </div> -->
+                {% endfor %}
+            </div>            <!-- class=division -->
+            <!-- <p>test2</p> -->
+            {% endfor %}      <!-- for division in league.divisions -->
+            <!-- <p>test3</p> -->
+        </div>                <!-- class=league -->
+        {% endfor %}          <!-- league in teams.leagues          -->
+    </div>                    <!-- id=mlb -->
 {% endblock content %}

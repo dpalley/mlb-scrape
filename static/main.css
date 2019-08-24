@@ -1,34 +1,77 @@
 body {
     margin: 0px;
-    padding: 10px;
+    /* padding: 10px; */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-left: 10px;
+}
+
+a {
+    color: black;
+}
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#mlb {
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
 }
 
 .league {
-    /* background-color: yellow; */
-    flex-direction: column;
-    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
 }
 
-/* contained within league */
+/* contained within mlb */
 /* container for al-xxx divisions */
-div#al {
+#al {
     background-color: red;
     flex-direction: column;
     justify-content: space-evenly;
     order: 1;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
-/* contained within league */
+/* contained within mlb */
 /* container for nl-xxx divisions */
-div#nl {
+#nl {
     background: blue;
     flex-direction: column;
     justify-content: space-evenly;
     order: 2;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .division {
+    margin: 0px;
+    padding: 0px;
 }
+
+.division h4 { margin-left: 10px; }
 
 /* contained within al (league) */
 /* container for individual teams */
@@ -96,14 +139,15 @@ span {
     padding: 10px;
 }
 
-.al-east {
-    order: 1;
+
+@media (max-width: 700px) {
+  #al #nl {
+    max-width: 50%;
+  }
 }
 
-.al-central {
-    order: 2;
-}
-
-.al-west {
-    order: 3;
+@media (max-width: 400px) {
+  #al #nl  {
+    max-width: 100%;
+  }
 }
