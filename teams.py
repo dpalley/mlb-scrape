@@ -13,9 +13,17 @@ def get_leagues():
     pass
 
 def get_teams():
-    page = requests.get('https://www.mlb.com/standings')
+    # get html from web
+    # page = requests.get('https://www.mlb.com/standings')
+    # page = requests.get('teams.html')
 
-    target = soup(page.text, 'lxml')
+    # get local html
+    with open(r'teams.html', "r") as f:
+        page = f.read()
+    # page = html.fromstring(page)
+
+    # target = soup(page.text, 'lxml')
+    target = soup(page, 'lxml')
 
     pattern = re.compile(r"window.reactHeaderState")
     my_script = target.find('script', text=pattern)
@@ -41,6 +49,12 @@ def get_teams():
     teams = json.loads(teams)
 
     return teams
+
+def get_players():
+    page = requests.get('https://www.mlb.com/standings')
+    # http://m.astros.mlb.com/hou/roster/40-man/
+
+    pass
 
 def get_teams2():
     page = requests.get('https://www.mlb.com/')

@@ -31,11 +31,12 @@ a:hover {
     width: 100%;
 }
 
-}
-
 .league {
     margin: 0px;
     padding: 0px;
+    border: .5px solid black;
+    /* border-left: 1px solid black;
+    border-right: 1px solid black; */
 }
 
 /* contained within mlb */
@@ -69,6 +70,7 @@ a:hover {
 .division {
     margin: 0px;
     padding: 0px;
+    border-top: 1px solid black;
 }
 
 .division h4 { margin-left: 10px; }
@@ -122,7 +124,7 @@ a:hover {
 }
 
 .team-name {
-    min-width: 150px;
+    min-width: 190px;
 }
 
 span {
@@ -138,6 +140,44 @@ span {
     height: 15px;
     padding: 10px;
 }
+
+
+footer {
+    margin: 0px;
+    padding: 10px;
+    background-color: black;
+    height: 100%;
+    display:  inline-block;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    border: 0;
+    color: white;
+    font-family: Verdana;
+}
+
+footer span {
+    display: block;
+    margin: 0 auto;
+}
+
+.copy {
+    display: inline-block;
+}
+
+.copy a {
+    text-decoration: underline;
+    color: white;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.copy a:hover {
+  text-decoration: none;
+  font-style: italic;
+}
+
 
 
 @media (max-width: 700px) {

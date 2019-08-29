@@ -5,24 +5,30 @@
     {% for league in teams.leagues %}
         {% set league_id = league.abr.lower() %}
         <div class="league" id="{{ league_id }}">
-        <h2 class="league">{{ league.name }}</h2>
+        <h2>{{ league.name }}</h2>
 
         {% for division in league.divisions %}
             {% set division_id = division.name.lower().replace(' ','-') %}
+
+            <!-- insert form here (each team is a button, not an url to another mlb.com page) -->
             <div class="division" id="{{ division_id }}">
-            <h4 class="division">{{ division.name }}</h4>
+            <h4>{{ division.name }}</h4>
 
             {% for team in division.teams %}
                 <!-- <div class="team"> -->
                 {% set name = team.name %}
                 {% set id = team.id %}
+                {% set url = team.url[1:] %}
                 {% set logo_url = 'https:' ~ team.logo %}
                 {% set stats_base_url = "http://mlb.mlb.com/stats/sortable.jsp#game_type='R'&season=2019" %}
                 {% set hitting_url = stats_base_url ~ '&statType=hitting&team_id=' ~ id ~ '&playerType=ALL' %}
                 {% set fielding_url = stats_base_url ~ '&statType=fielding&team_id=' ~ id ~ '&playerType=ALL' %}
                 {% set pitching_url = stats_base_url ~ '&statType=pitching&team_id=' ~ id ~ '&playerType=ALL&position="1"' %}
+                {% set team_url = 'http://m.' ~ url ~ '.mlb.com/roster/40-man/' %}
+{#
+                {% set team_url = './' ~ url ~ '.html' %}
                 {% set team_url = 'http://mlb.mlb.com' ~ team.url %}
-
+#}
                     <span class="team">
                         <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a>
                         <a class="team-name" href="{{ team_url }}">{{ name }}</a>

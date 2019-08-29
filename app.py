@@ -10,14 +10,14 @@ app = Flask(__name__)
 @app.route("/league")
 def league():
     teams = get_teams()
-    return render_template('league.html', teams=teams)
+    return render_template('league.html', teams=teams, title='Teams')
 
-@app.route("/team")
-def team():
+@app.route("/players")
+def players():
     players = get_players()
-    return render_template('team.html', players=players)
+    return render_template('players.html', players=players, title='Players')
 
-@app.route("/player")
+@app.route("/stats")
 def player():
     stats = get_stats()
     return render_template('player.html', stats=stats)
