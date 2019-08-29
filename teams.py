@@ -14,16 +14,14 @@ def get_leagues():
 
 def get_teams():
     # get html from web
-    # page = requests.get('https://www.mlb.com/standings')
-    # page = requests.get('teams.html')
+    page = requests.get('https://www.mlb.com/standings')
 
     # get local html
-    with open(r'teams.html', "r") as f:
-        page = f.read()
+    # with open(r'teams.html', "r") as f:
+    #     page = f.read()
     # page = html.fromstring(page)
 
-    # target = soup(page.text, 'lxml')
-    target = soup(page, 'lxml')
+    target = soup(page.text, 'lxml')
 
     pattern = re.compile(r"window.reactHeaderState")
     my_script = target.find('script', text=pattern)
