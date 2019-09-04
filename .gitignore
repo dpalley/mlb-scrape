@@ -8,3 +8,5 @@ readme.txt
 team_info.txt
 heroku-notes.txt
 teams.json
+.DS_Store
+__pycache__/

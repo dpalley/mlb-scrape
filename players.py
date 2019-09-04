@@ -1,2 +1,2 @@
-def get_players():
-    pass
+# def get_players():
+#     pass

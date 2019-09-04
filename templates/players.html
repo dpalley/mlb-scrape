@@ -2,4 +2,27 @@
 
 {% block content %}
 
+    <h2>{{ team.capitalize() }}</h2>
+
+    <div id="player-select">
+    {% for (player_name, player_id) in player_info %}
+
+        <!-- insert form here (each player is a button, not an url to another mlb.com page) -->
+        <div class="each-player">
+            <!-- <form method="POST" action=""> -->
+            <p>{{ player_name ~ ' ' ~ player_id }}</p>
+
+            <!-- <p><span class="player"> -->
+            <!-- <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a> -->
+            <!-- <a class="team-name" href="#">{{ name }}</a> -->
+            <!-- <button name={{ name }} type="submit" value="{{ url }}">{{ name }}</button> -->
+            <!-- <button name="subject" type="submit" value="fav_HTML">HTML</button> -->
+            <!-- <a class="team-name" href="{{ team_url }}">{{ name }}</a> -->
+
+            <!-- </span></p> -->
+            <!-- </form> -->
+            </div>            <!-- class=division -->
+
+        {% endfor %}          <!-- league in teams.leagues          -->
+    </div>                    <!-- id=mlb -->
 {% endblock content %}

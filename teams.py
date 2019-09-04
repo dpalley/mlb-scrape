@@ -2,24 +2,10 @@ import re
 import requests
 import json
 from bs4 import BeautifulSoup as soup
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-
-# page = requests.get('http://www.espn.com/mlb/history/leaders/_/breakdown/season/year/2018/start/1')
-# page = requests.get('https://www.espn.com/mlb/teams')
-# page = requests.get('https://www.baseball-reference.com/')
-
-def get_leagues():
-    pass
 
 def get_teams():
     # get html from web
     page = requests.get('https://www.mlb.com/standings')
-
-    # get local html
-    # with open(r'teams.html', "r") as f:
-    #     page = f.read()
-    # page = html.fromstring(page)
 
     target = soup(page.text, 'lxml')
 
@@ -48,16 +34,25 @@ def get_teams():
 
     return teams
 
-def get_players():
-    page = requests.get('https://www.mlb.com/standings')
-    # http://m.astros.mlb.com/hou/roster/40-man/
+def get_players(team):
+    page = requests.get('http://m.' + team + '.mlb.com/roster/40-man/')
 
-    pass
+    target = soup(page.text, 'lxml')
+    roster = target.find('div', id='content')
+    player_names = []
+    player_ids = []
+
+    for a in roster.find_all('a', class_=''):
+        href = a['href']
+        junk1, junk2, player_id, name = href.split('/')
+        player_name = name.title().replace('-', ' ')
+        player_names.append(player_name)
+        player_ids.append(player_id)
+
+    return player_names, player_ids
 
 def get_teams2():
     page = requests.get('https://www.mlb.com/')
-
-
     target = soup(page.text, 'lxml')
     pattern = re.compile(r"window.team_info")
     my_script = target.find('script', text=pattern)
@@ -69,10 +64,4 @@ def get_teams2():
 
     # teams is a list of dictionaries
     teams = json.loads(stripped)
-
-    # for team in teams:
-    #     print(f"{team['name']} - {team['division']['name']} - {team['springLeague']['name']}")
-    #
-    # pp.pprint(teams)
-
     return teams
