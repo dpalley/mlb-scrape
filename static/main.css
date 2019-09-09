@@ -4,6 +4,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p {
+    margin-top: 10px;
     margin-left: 10px;
 }
 
@@ -20,6 +21,11 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
+}
+
+#banner {
+    text-align: center;
+
 }
 
 #mlb {
@@ -102,6 +108,8 @@ a:hover {
 }
 
 #nl-central {
+    margin: 0;
+    padding: 0;
     flex-direction: column;
     order: 2;
     background-color: #2980b9;
@@ -114,31 +122,56 @@ a:hover {
 }
 
 .team {
+    margin: 0 auto;
+    padding: 0;
 }
 
-
+img {
+    margin: 0 10px;
+}
 .team-logo {
   width:  25px;
   height: 25px;
-  padding: 5px;
 }
 
 .team-name {
     min-width: 190px;
 }
 
-span {
-  min-height: 50px;
-  /* display: inline-flex; */
-  display: flex;
-  align-items: center;
-  /* border: 1px solid aqua; */
+.button {
+  background-color: inherit;
+  border: none;
+  color: black;
+  padding: 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button:hover {
+    cursor: pointer;
 }
 
 .stat-logo {
     width: 15px;
     height: 15px;
     padding: 10px;
+}
+
+.each-player {
+    min-height: 35px;
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 0 auto;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.player-pic {
+    height: 50px;
+    width: auto;
+    margin: 10px;
+    vertical-align: middle;
 }
 
 

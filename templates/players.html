@@ -1,28 +1,26 @@
 {% extends 'layout.html' %}
 
-{% block content %}
+{%- block content %}
+<div id="{{ division_id }}" class='players'>
+    <h1>Player Stats</h1>
+    {%- set name = dashed_name.replace('-', ' ').title() %}
 
-    <h2>{{ team.capitalize() }}</h2>
+    <h2>{{ name }}</h2>
 
-    <div id="player-select">
     {% for (player_name, player_id) in player_info %}
+        {% set player_address = player_name.replace(' ', '-').lower() %}
+        {% set image_url = 'http://gdx.mlb.com/images/gameday/mugshots/mlb/' ~ player_id ~ '.jpg' %}
+        {% set stat_url= 'https://baseballsavant.mlb.com/savant-player/' ~ player_address ~ '-' ~ player_id %}
 
-        <!-- insert form here (each player is a button, not an url to another mlb.com page) -->
         <div class="each-player">
-            <!-- <form method="POST" action=""> -->
-            <p>{{ player_name ~ ' ' ~ player_id }}</p>
+            <span>
+                <a href='{{ stat_url }}'><img class='player-pic' src = "{{ image_url }}">
+                {{ player_name }}</a>
+            </span>
 
-            <!-- <p><span class="player"> -->
-            <!-- <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a> -->
-            <!-- <a class="team-name" href="#">{{ name }}</a> -->
-            <!-- <button name={{ name }} type="submit" value="{{ url }}">{{ name }}</button> -->
-            <!-- <button name="subject" type="submit" value="fav_HTML">HTML</button> -->
-            <!-- <a class="team-name" href="{{ team_url }}">{{ name }}</a> -->
 
-            <!-- </span></p> -->
-            <!-- </form> -->
-            </div>            <!-- class=division -->
+        </div>            <!-- class=each-player -->
 
-        {% endfor %}          <!-- league in teams.leagues          -->
-    </div>                    <!-- id=mlb -->
+    {% endfor %}          <!-- league in teams.leagues   -->
+</div>                    <!-- class=players  -->
 {% endblock content %}
