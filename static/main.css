@@ -1,6 +1,5 @@
 body {
     margin: 0px;
-    /* padding: 10px; */
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -41,8 +40,6 @@ a:hover {
     margin: 0px;
     padding: 0px;
     border: .5px solid black;
-    /* border-left: 1px solid black;
-    border-right: 1px solid black; */
 }
 
 /* contained within mlb */
@@ -124,6 +121,7 @@ a:hover {
 .team {
     margin: 0 auto;
     padding: 0;
+
 }
 
 img {
@@ -132,6 +130,7 @@ img {
 .team-logo {
   width:  25px;
   height: 25px;
+  vertical-align: middle;
 }
 
 .team-name {

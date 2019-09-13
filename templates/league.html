@@ -27,18 +27,10 @@
                     {% set team_url = 'http://m.' ~ url ~ '.mlb.com/roster/40-man/' %}
 
                     <p class="team"><span>
-                        <a href="{{ team_url }}">
-                            <img class="team-logo" src = "{{ logo_url }}">
-                        </a>
+                        <a href="{{ team_url }}"><img class="team-logo" src = "{{ logo_url }}"></a>
                         <button class='button' name='team' type="submit" value={{ url ~ '.' ~ dashed_name ~ '.' ~ division_id }}>{{ team_name }}</button>
                     </span></p>
 
-                        <!-- <button class='button' name='team' type="submit" value={{ (url, dashed_name, division_id) }}>{{ team_name }}</button> -->
-<!--
-                        <a href="{{ hitting_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'hit.jpg') }}" title="Hitting Stats"></a>
-                        <a href="{{ fielding_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'field.jpg') }}" title="Fielding Stats"></a>
-                        <a href="{{ pitching_url }}"><img class="stat-logo" src="{{ url_for('static', filename = 'pitch.jpg') }}" title="Pitching Stats"></a>
--->
                     {% endfor %}
                 </form>
             </div>            <!-- class=division -->

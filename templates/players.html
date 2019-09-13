@@ -13,8 +13,9 @@
         {% set stat_url= 'https://baseballsavant.mlb.com/savant-player/' ~ player_address ~ '-' ~ player_id %}
 
         <div class="each-player">
-            <span>
-                <a href='{{ stat_url }}'><img class='player-pic' src = "{{ image_url }}">
+            <span>        
+                <a href='{{ stat_url }}'><img class='player-pic' src = "{{ image_url }}"
+                    onError="this.onerror=null;this.src='https://content.mlb.com/images/headshots/current/60x60/generic@2x.png';">
                 {{ player_name }}</a>
             </span>
 
